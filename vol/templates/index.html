@@ -1,0 +1,22 @@
+{{template "header.html"}}
+<body>
+	<div class ="header">
+	  <div id="logo"><a href="/"><img src="/assets/logo.png" height="70" width="70"/></a></div>
+	  <div id="menu">
+		<button class = "menubouton" hx-get="/size" hx-target="#content" hx-swap="innerHTML" >Size</button>
+		<button class = "menubouton" hx-get="/getziform" hx-target="#content" hx-swap="innerHTML" >Zi => Pinyin</button>
+		<button class = "menubouton" hx-get="/getpyform" hx-target="#content" hx-swap="innerHTML" >Pinyin => Zi</button>
+		<button class = "menubouton" hx-get="/addziform" hx-target="#content" hx-swap="innerHTML" >Add zi</button>
+		<button class = "menubouton" hx-get="/selupdate" hx-target="#content" hx-swap="innerHTML" >Update zi</button>
+		<button class = "menubouton" hx-get="/showlast" hx-target="#content" hx-swap="innerHTML" >Last zi</button>
+		<button class = "menubouton" hx-get="/getdelete" hx-target="#content" hx-swap="innerHTML" >Delete zi</button>
+		<button class = "menubouton" hx-get="/listdic" hx-target="#content" hx-swap="innerHTML" >List dictionary</button>
+	  </div>
+	</div>
+	<div style='outline:none;padding-top:50px;' id="container"></div>
+    <h1 class="title">Manage character dictionary</h1>
+    <p id="describe">Create, read, update and delete dictionary entries<br /></p>
+    <div id="content">{{ .content }}</div>
+    <p style="height:4em;margin:0px;">&nbsp;</p>
+
+{{template "footer.html"}}
