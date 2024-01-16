@@ -3,13 +3,15 @@ While my `Chinese character writer` is focussed on using and learning chinese ch
 
 It is a CRUD program written in GO with GIN, HTMX and HTML5 validation.
 
+### Watch live at https://gozdman.fly.dev/
+
 A word about HTMX, which is an enhanced HTML enabling AJAX calls through simple tags included in HTML elements.
 
 ## Overview of the program flow:
 
-For example, this button, when clicked, will start a `GET` AJAX request over the `/size` route, the result of which will overwrite the content (innerHTML) of the `div` element with CSS id `"content"` (further referred to as the `#content div`):
+For example, the `Size` button, when clicked, will start a `GET` AJAX request over the `/size` route, the result of which will overwrite the content (innerHTML) of the `div` element with CSS id `"content"` (further referred to as the `#content div`):
 
-```
+```html
 <button class = "menubouton" hx-get="/size" hx-target="#content" hx-swap="innerHTML" >Size</button>
 ```
 
