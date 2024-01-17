@@ -13,7 +13,7 @@ func Ziform() string {
 		    <label for="carac">Character:</label>
 		    <input id="carac" name="carac" type="text" autofocus required minlength="1" maxlength="1">
 		    <button class="menubouton" type="submit">Click to submit </button>
-			<button class="menubouton" hx-get="/remove">Cancel</button>
+			<button class="menubouton" hx-get="/remove" hx-target="#content", hx-swap="innerHTML">Cancel</button>
 	  </form>
 	`
 }
@@ -24,7 +24,7 @@ func Pyform() string {
 		    <label for="pinyin">Pinyin+tone (using pattern ^[a-z]+[0-4]?) :</label>
 		    <input id="pinyin" name="pinyin" type="text" pattern="^[a-z]+[0-4]?" autofocus>
 		    <button class="menubouton" type="submit">Click to submit </button>
-			<button class="menubouton" hx-get="/remove">Cancel</button>
+			<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	`
 }
@@ -35,7 +35,7 @@ func Selupdate() string {
 		    <label for="id">Id:</label>
 		    <input id="id" name="id" required type="number" autofocus>
 		    <button class="menubouton" type="submit">Click to submit </button>
-			<button class="menubouton" hx-get="/remove">Cancel</button>
+			<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  `
 }
@@ -53,7 +53,7 @@ func Addziform() string {
 		  <input id="sens" name="sens" type="text"><br />
 		
 		<button class="formbut" type="submit">Submit</button>
-		<button class="formbut" hx-get="/remove">Cancel</button>
+		<button class="formbut" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  <script>
 	    function displayChar(){
@@ -80,7 +80,7 @@ func Updateziform(zi data.Zi) string {
 		<label for="sens">Meaning:</label>
 		<input id="sens" name="sens" type="text" value="` + zi.Sens + `"><br />
 		<button class="formbut" type="submit">Submit</button>
-		<button class="formbut"  hx-get="/remove">Cancel</button>
+		<<button class="formbut" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  <script>
 	    function displayChar(){
@@ -101,7 +101,7 @@ func Seldelete() string {
 			<label for="id">Id:</label>
 		    <input id="id" name="id" rquired type="number" autofocus>
 		    <button class="menubouton" type="submit">Submit</button>
-			<button class="menubouton" hx-get="/remove">Cancel</button>
+			<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  `
 }
@@ -114,8 +114,7 @@ func Confdelete(zi data.Zi) string {
 			<table>` + data.Printzi(zi) + `</table>
 		    
 			<button class="formbut" type="submit">Yes</button>
-		    <button class="formbut"  hx-get="/remove">No</button>
-			
+		    <button class="formbut" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  `
 }

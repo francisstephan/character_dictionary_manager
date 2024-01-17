@@ -21,7 +21,7 @@ The `div` source code :
 <div id="content">{{ .content }}</div>
 ```
 
-This div's content will be overwritten in two ways:
+This div's content may be overwritten in two ways:
 - with the GO templating system, through the {{.content}} tag
 - with the htmx ajax requests, such as here above, which will overwrite the text with the dictionary's size. The /size route is handled with the `dicsize` handler :
 
@@ -36,7 +36,7 @@ We do not need to bother where this text will be displayed: this was already spe
 
 
 Identifying a chinese character (`Zi => Pinyin`) is done in two steps (two AJAX requests):
-- one GET request to display the adequate form:
+### - one `GET` request to display the adequate form:
 
 ```html
 <button class = "menubouton" hx-get="/getziform" hx-target="#content" hx-swap="innerHTML" >Zi => Pinyin</button>
@@ -65,7 +65,7 @@ func Ziform() string {
 }
 ```
 
-- one `POST` request:
+### - one `POST` request:
 
 When the form is submitted, it will be processed as a `POST` request by the adequate handler and the result will, once again, overwrite the #content div.
 
@@ -82,7 +82,7 @@ We tried the `htmx-remove` extension, but this did not satisfy our requirements.
 We solved this by associating a specific GET request with these buttons, requesting for removal of the `#content` div's content:
 
 ```html
-<button class="menubouton" hx-get="/remove">Cancel</button>
+<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 ```
 
 and the corresponding handler :
@@ -120,4 +120,12 @@ We use 3 keyboard shortcuts:
 - Esc to abort a form.
 
 z and p eventlisteners should only be active when `no` form is displayed, while Esc should only be active in the opposite case, i.e. when a form is displayed.
-This is easily done using some javascript. 
+This is easily done using HTMX ajax function. For instance for the Esc key the event listener is :
+
+```javascript
+    function esckey(e) {
+		if(e.keyCode==27) htmx.ajax('GET', "/remove", {target: "#content", swap: "innerHTML"}); // key esc : cancel form
+	}
+```
+
+The syntax of this function call is very similar to that of the Cancel button here above.
