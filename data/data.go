@@ -195,7 +195,7 @@ func DBupdatezi(id int, zi DBidzi) string {
 		log.Println(err.Error())
 		return mess
 	}
-	return "Update success for entry id" + strconv.Itoa(id)
+	return "Update success for entry id " + strconv.Itoa(id)
 }
 
 func DBdelete(aid string) string {

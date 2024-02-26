@@ -46,7 +46,7 @@ func Addziform() string {
 	  <form id="addziform" class="multi" hx-post="/addzi" hx-target="#content" hx-swap="innerHTML">
 	      <p id="formhead">Add character to dictionary :</p>
 		  <label for="pinyin_ton">Pinyin+tone (using pattern ^[a-z]+[0-4]?) :</label>
-		  <input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z]+[0-4]?"><br />
+		  <input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z]+[0-4]?" autofocus><br />
 		  <label for="unicode">Unicode:</label>
 		  <input id="unicode" name="unicode" type="text"><span id="viewcar"> </span><br />
 		  <label for="sens">Meaning:</label>
