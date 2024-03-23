@@ -21,8 +21,8 @@ func Ziform() string {
 func Pyform() string {
 	return `
 	  <form hx-post="/listpy" hx-target="#content" hx-swap="innerHTML" >
-		    <label for="pinyin">Pinyin+tone (using pattern ^[a-z]+[0-4]?) :</label>
-		    <input id="pinyin" name="pinyin" type="text" pattern="^[a-z]+[0-4]?" autofocus>
+		    <label for="pinyin">Pinyin+tone (using pattern ^[a-z,ü]+[0-4]?) :</label>
+		    <input id="pinyin" name="pinyin" type="text" pattern="^[a-z,ü]+[0-4]?" autofocus>
 		    <button class="menubouton" type="submit">Click to submit </button>
 			<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
@@ -80,7 +80,7 @@ func Updateziform(zi data.Zi) string {
 		<label for="sens">Meaning:</label>
 		<input id="sens" name="sens" type="text" value="` + zi.Sens + `"><br />
 		<button class="formbut" type="submit">Submit</button>
-		<<button class="formbut" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
+		<button class="formbut" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>
 	  <script>
 	    function displayChar(){
