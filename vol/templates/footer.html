@@ -14,7 +14,7 @@
 	function ajustkey() {
       contenu = document.getElementById("content");
 	  // console.log(contenu.innerHTML);
-	  if (contenu.innerHTML.startsWith("<form")) { // if form, authorize Esc and remove z and p listeners
+	  if (contenu.innerHTML.startsWith("<form ")) { // if form, authorize Esc and remove z and p listeners
 		  document.body.removeEventListener("keydown", shortkey);
 		  document.body.addEventListener("keydown", esckey);
 	  }

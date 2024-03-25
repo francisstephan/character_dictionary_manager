@@ -110,7 +110,7 @@ window.onload = function() {
         contenu.innerHTML = `Unexpected server error: ${xhr.status} - ${xhr.statusText}`;
       } 
     });
-};```
+};
 ```
 
 ## 3. Keyboard shortcuts:
@@ -120,7 +120,7 @@ We use 3 keyboard shortcuts:
 - Esc to abort a form.
 
 z and p eventlisteners should only be active when `no` form is displayed, while Esc should only be active in the opposite case, i.e. when a form is displayed.
-This is easily done using HTMX ajax function. For instance for the Esc key the event listener is :
+This is easily done using HTMX ajax functions. For instance for the Esc key the event listener is :
 
 ```javascript
     function esckey(e) {
@@ -129,3 +129,33 @@ This is easily done using HTMX ajax function. For instance for the Esc key the e
 ```
 
 The syntax of this function call is very similar to that of the Cancel button here above.
+
+The function to add or remove key event listeners tests the presence of a `<form >` element in the `#content div` :
+
+```javascript
+   function ajustkey() {
+      contenu = document.getElementById("content");
+	  // console.log(contenu.innerHTML);
+	  if (contenu.innerHTML.startsWith("<form ")) { // if form, enable Esc and remove z and p listeners
+		  document.body.removeEventListener("keydown", shortkey);
+		  document.body.addEventListener("keydown", esckey);
+	  }
+	  else { // if not form, remove Esc (there is nothing to cancel) and enable z and p listeners
+		  document.body.addEventListener("keydown", shortkey);
+		  document.body.removeEventListener("keydown", esckey);
+	  }
+	}
+```
+
+This function is triggered by the `htmx:afterRequest` event, through an event listener initially to the page (remember, all htmx calls are `ajax` calls, meaning that the page is only loaded once):
+
+```javascript
+   window.onload = function() {
+	  elem = document.body 
+	  elem.addEventListener("keydown", shortkey) // initially enable z and p shortcut keys
+	  elem.addEventListener("htmx:afterRequest", ajustkey) // after ajax request performed by htmx, adjust keydown listeners
+   }
+```
+
+
+
