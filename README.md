@@ -124,11 +124,11 @@ This is easily done using HTMX ajax functions. For instance for the Esc key the 
 
 ```javascript
     function esckey(e) {
-		if(e.keyCode==27) htmx.ajax('GET', "/remove", {target: "#content", swap: "innerHTML"}); // key esc : cancel form
+		if(e.keyCode==27) htmx.ajax('GET', "/remove", {target: "#content", swap: "innerHTML"}); // Esc key : cancel form
 	}
 ```
 
-The syntax of this function call is very similar to that of the Cancel button here above.
+The syntax of this function call is very similar to the htmx attributes of the Cancel button here above.
 
 The function to add or remove key event listeners tests the presence of a `<form >` element in the `#content div` :
 
@@ -147,7 +147,7 @@ The function to add or remove key event listeners tests the presence of a `<form
 	}
 ```
 
-This function is triggered by the `htmx:afterRequest` event, through an event listener initially to the page (remember, all htmx calls are `ajax` calls, meaning that the page is only loaded once):
+This function is triggered by the `htmx:afterRequest` event, through an event listener initially added to the page (remember, all htmx calls are `ajax` calls, meaning that the page is only loaded once):
 
 ```javascript
    window.onload = function() {
