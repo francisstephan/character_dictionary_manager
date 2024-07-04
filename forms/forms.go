@@ -45,8 +45,8 @@ func Addziform() string {
 	return `
 	  <form id="addziform" class="multi" hx-post="/addzi" hx-target="#content" hx-swap="innerHTML">
 	      <p id="formhead">Add character to dictionary :</p>
-		  <label for="pinyin_ton">Pinyin+tone (using pattern ^[a-z]+[0-4]?) :</label>
-		  <input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z]+[0-4]?" autofocus><br />
+		  <label for="pinyin_ton">Pinyin+tone (using pattern ^[a-z,ü]+[0-4]?) :</label>
+		  <input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z,ü]+[0-4]?" autofocus><br />
 		  <label for="unicode">Unicode:</label>
 		  <input id="unicode" name="unicode" type="text"><span id="viewcar"> </span><br />
 		  <label for="sens">Meaning:</label>
@@ -73,8 +73,8 @@ func Updateziform(zi data.Zi) string {
 	    <p id="formhead">Update dictionary entry :</p>
 	    <label for="Id">Id:</label>
 	    <input id="Id" name="Id" type="text" readonly value="` + strconv.Itoa(zi.Id) + `"><br />
-	    <label for="pinyin_ton">Pinyin+tone (using pattern ^[a-z]+[0-4]?) :</label>
-		<input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z]+[0-4]?" value="` + zi.Pinyin_ton + `"><br />
+	    <label for="pinyin_ton">Pinyin+tone (using pattern ^[a-z,ü]+[0-4]?) :</label>
+		<input id="pinyin_ton" name="pinyin_ton" type="text" pattern="^[a-z,ü]+[0-4]?" value="` + zi.Pinyin_ton + `"><br />
 		<label for="unicode">Unicode:</label>
 		<input id="unicode" name="unicode" type="text" value="` + zi.Unicode + `"><span id="viewcar"> ` + zi.Hanzi + ` </span><br />
 		<label for="sens">Meaning:</label>
@@ -99,7 +99,7 @@ func Seldelete() string {
 	  <form hx-post="/seldelete" hx-target="#content" hx-swap="innerHTML" >
 		    <p>Enter Id of entry to delete :</p>
 			<label for="id">Id:</label>
-		    <input id="id" name="id" rquired type="number" autofocus>
+		    <input id="id" name="id" required type="number" autofocus>
 		    <button class="menubouton" type="submit">Submit</button>
 			<button class="menubouton" hx-get="/remove" hx-target="#content" hx-swap="innerHTML">Cancel</button>
 	  </form>

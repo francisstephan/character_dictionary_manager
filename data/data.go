@@ -97,7 +97,7 @@ func printdic(sousdic Dico, py string) string { // prepare browser display of pa
 func Printlast() string { // print last entry in dictionary
 	dic := litdic("")
 	zi := dic[len(dic)-1]
-	return "Last entry: <table>" + Printzi(zi) + "</table>"
+	return "Last entry: <br /><br /><table>" + Printzi(zi) + "</table>"
 }
 
 func Printdiclist() string {

@@ -39,7 +39,7 @@ td{
 	bottom:0;
 	width:100%;
 	box-sizing:border-box;
-	height:80px;   /* Height of the footer */
+	height:100px;   /* Height of the footer */
 	background:#888; color: white;
 	padding:20px 0 0 100px;
 	font-size: 16px;
