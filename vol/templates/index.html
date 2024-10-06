@@ -13,10 +13,11 @@
 		<button class = "menubouton" hx-get="/listdic" hx-target="#content" hx-swap="innerHTML" >List dictionary</button>
 	  </div>
 	</div>
-	<div style='outline:none;padding-top:50px;' id="container"></div>
+	<div id="container">
     <h1 class="title">Manage character dictionary</h1>
     <p id="describe">Create, read, update and delete dictionary entries<br /></p>
     <div id="content">{{ .content }}</div>
     <p style="height:4em;margin:0px;">&nbsp;</p>
+	</div> <!-- end container div -->
 
 {{template "footer.html"}}

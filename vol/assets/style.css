@@ -26,11 +26,14 @@ td{
 	top: 0;
 }
 
-#cont{
-	padding-top:50px;
-}
 #menu{
 	margin-left: 130px; 
+}
+
+#container{
+	outline: none;
+	padding-top: 50px;
+	padding-bottom: 30px ; 
 }
 
 #footer {
@@ -131,4 +134,6 @@ input:valid {
 	border: 1px solid black;
 }
   
-
+:is(tbody, table) > tr:nth-child(odd) {
+    background: #0001; /* or #fff1 for dark themes */
+}
