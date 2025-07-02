@@ -3,9 +3,7 @@ While my `Chinese character writer` is focussed on using and learning chinese ch
 
 It is a CRUD program written in GO with GIN, HTMX and HTML5 validation.
 
-### Watch live at https://gozdman.fly.dev/
-
-A word about HTMX, which is an enhanced HTML enabling AJAX calls through simple tags included in HTML elements.
+> A word about HTMX, which is an enhanced HTML enabling AJAX calls through simple tags included in HTML elements.
 
 ## Overview of the program flow:
 
